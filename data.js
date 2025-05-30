@@ -165,9 +165,26 @@ function Studente (nome, materie){
 }
 }
 
-let studente1 = new Studente('Luca', [{mat: 'matematica', voto: 5}, {mat: 'geografia', voto: 6}, {mat: 'storia', voto: 8}])
-let studente2 = new Studente('Maria', [{mat: 'matematica', voto: 8}, {mat: 'geografia', voto: 5}, {mat: 'storia', voto: 7}])
+let studente1 = new Studente('Luca', [{mat: 'matematica', voto: 6}, {mat: 'geografia', voto: 6}, {mat: 'storia', voto: 8}])
+let studente2 = new Studente('Maria', [{mat: 'matematica', voto: 6}, {mat: 'geografia', voto: 6}, {mat: 'storia', voto: 7}])
 studente1.aggiungimateria({mat: 'chimica', voto: 4})
 console.log(studente1)
 console.log(studente1.mediavoti('Luca'))
 console.log(studente2.mediavoti('Maria'))
+
+function Utente (nome){
+  this.nome = nome
+  this.inviaMessaggio = function(dest,content){
+    let mex = []
+    let oggetto = {destinatario: dest, contenuto: content}
+    this.mess.push(oggetto)
+  }
+  
+  this.mess = []
+}
+
+let person1 = new Utente('Luca')
+person1.inviaMessaggio('Mario', 'Ciao!')
+person1.inviaMessaggio('Maria', 'We!')
+person1.inviaMessaggio('Marco', 'Domani ci sei?')
+console.log(person1)
