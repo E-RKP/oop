@@ -136,3 +136,38 @@ biblioteca.aggiungiLibro({
       anno: 2007
     })
 console.log(biblioteca.libri)
+
+
+function Studente (nome, materie){
+  this.nome = nome
+  this.materie = materie
+  this.aggiungimateria = function(oggetto){
+    for (i=0; i<this.materie.length;i++){
+      if (this.materie[i].mat != oggetto.mat){
+        this.materie.push(oggetto)
+        break;
+      }
+    }
+  }
+
+  this.mediavoti = function(studente){
+
+    let somma = 0
+    let media = 0
+    if (this.nome === studente){
+      for (i=0; i<this.materie.length;i++){
+        somma = somma+this.materie[i].voto
+      }
+      media = somma / this.materie.length
+      
+    }
+  return media;
+}
+}
+
+let studente1 = new Studente('Luca', [{mat: 'matematica', voto: 5}, {mat: 'geografia', voto: 6}, {mat: 'storia', voto: 8}])
+let studente2 = new Studente('Maria', [{mat: 'matematica', voto: 8}, {mat: 'geografia', voto: 5}, {mat: 'storia', voto: 7}])
+studente1.aggiungimateria({mat: 'chimica', voto: 4})
+console.log(studente1)
+console.log(studente1.mediavoti('Luca'))
+console.log(studente2.mediavoti('Maria'))
