@@ -188,3 +188,70 @@ person1.inviaMessaggio('Mario', 'Ciao!')
 person1.inviaMessaggio('Maria', 'We!')
 person1.inviaMessaggio('Marco', 'Domani ci sei?')
 console.log(person1)
+
+let prenotaCinema = {
+
+  film: [
+    {
+      titolo: 'Ciao a tutti amigos!',
+      sala: 8,
+      posti: 280,
+      postiDisponibili: 20,
+      biglietti: []
+    },
+
+    {
+      titolo: 'Emerald',
+      sala: 1,
+      posti: 120,
+      postiDisponibili: 119,
+      biglietti: []
+    },
+
+    {
+      titolo: 'okkkk',
+      sala: 2,
+      posti: 260,
+      postiDisponibili: 250,
+      biglietti: []
+    },
+
+    {
+      titolo: 'Avengers',
+      sala: 3,
+      posti: 280,
+      postiDisponibili: 5,
+      biglietti: []
+    },
+
+    {
+      titolo: 'One Piece Red',
+      sala: 6,
+      posti: 150,
+      postiDisponibili: 120,
+      biglietti: []
+    }
+  ],
+
+
+
+  prenotazione: function(nome, filmastro, n){
+
+    for (i=0; i<prenotaCinema.film.length;i++){
+      if (filmastro === prenotaCinema.film[i].titolo){
+        if (prenotaCinema.film[i].postiDisponibili >= n){
+          let biglietto = {name: nome, nbiglietti: n}
+          prenotaCinema.film[i].biglietti.push(biglietto)
+          return `Grazie ${nome}, hai prenotato ${n} biglietti per il film ${filmastro}.`
+        }else{
+          return `Sono rimasti solamente ${prenotaCinema.film[i].postiDisponibili} posti disponibili, ${n-prenotaCinema.film[i].postiDisponibili} in meno rispetto ai tuoi prenotati.` 
+        }
+      }
+    }
+  }
+}
+
+console.log(prenotaCinema.prenotazione('Luca', 'Avengers', 2))
+console.log(prenotaCinema.film)
+
+  
