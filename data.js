@@ -242,6 +242,7 @@ let prenotaCinema = {
         if (prenotaCinema.film[i].postiDisponibili >= n){
           let biglietto = {name: nome, nbiglietti: n}
           prenotaCinema.film[i].biglietti.push(biglietto)
+          prenotaCinema.film[i].postiDisponibili = prenotaCinema.film[i].postiDisponibili-n
           return `Grazie ${nome}, hai prenotato ${n} biglietti per il film ${filmastro}.`
         }else{
           return `Sono rimasti solamente ${prenotaCinema.film[i].postiDisponibili} posti disponibili, ${n-prenotaCinema.film[i].postiDisponibili} in meno rispetto ai tuoi prenotati.` 
